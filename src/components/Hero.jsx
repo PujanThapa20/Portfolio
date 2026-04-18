@@ -9,25 +9,25 @@ const Hero = () => {
       <div className="absolute bottom-1/4 right-1/4 w-[200px] md:w-[300px] h-[200px] md:h-[300px] bg-emerald-900/10 rounded-full blur-[80px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-8 items-center z-10">
-        
+
         {/* Left Side: Content */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
           className="flex flex-col items-start text-left"
         >
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-4 tracking-tight text-stone-100"
           >
-            Hi, I'm <br/>
+            Hi, I'm <br />
             <span className="text-gradient leading-tight">Pujan Thapa</span>
           </motion.h1>
-          
-          <motion.p 
+
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
@@ -58,16 +58,15 @@ const Hero = () => {
           <div className="glass-card w-full max-w-[200px] sm:max-w-[280px] rounded-2xl p-3 flex flex-col relative group shadow-2xl overflow-hidden border-t border-l border-white/5 bg-stone-900/60 backdrop-blur-2xl">
             {/* Subtle nature accent inside card */}
             <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-800/10 rounded-full blur-2xl" />
-            
+
             <div className="w-full aspect-[4/5] rounded-xl overflow-hidden mb-4 relative">
-              <img 
-                src="/hero-image.jpeg" 
-                alt="Pujan Thapa" 
-                className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105" 
+              <img
+                src="/hero-image.jpeg"
+                alt="Pujan Thapa"
+                className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-stone-950/20 group-hover:bg-transparent transition-colors duration-500" />
             </div>
-            
+
             <div className="text-left px-2 mb-1">
               <h2 className="text-lg font-medium text-stone-200 tracking-wide mb-1">Frontend Dev.</h2>
               <p className="text-stone-500 font-mono text-[10px] tracking-widest uppercase">Base: Kathmandu</p>
@@ -76,16 +75,16 @@ const Hero = () => {
         </motion.div>
 
       </div>
-      
+
       {/* Scroll indicator */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
         className="absolute bottom-6 sm:bottom-8 left-4 sm:left-6 md:left-12 flex items-center gap-2 sm:gap-3 text-stone-500"
       >
         <span className="text-[10px] uppercase tracking-widest font-medium rotate-[-90deg] origin-left translate-y-5">Scroll</span>
-        <motion.div 
+        <motion.div
           animate={{ height: ["0%", "100%", "0%"], top: ["0%", "0%", "100%"] }}
           transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
           className="w-px h-12 bg-stone-700 relative overflow-hidden"
