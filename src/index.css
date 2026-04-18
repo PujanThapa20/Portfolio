@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-heading: "Outfit", sans-serif;
+}
+
+@layer base {
+  body {
+    /* Base background is a very dark stone/gray. The gradients will sit on top. */
+    @apply bg-stone-950 text-stone-200 antialiased overflow-x-hidden selection:bg-emerald-900/40 selection:text-emerald-100;
+    font-family: var(--font-sans);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    @apply font-light tracking-tight text-stone-100;
+  }
+}
+
+/* Earth & Nature Theme Background */
+.dark-gradient-bg {
+  /* A sophisticated blend of dark stone, deep forest green, and subtle earthy brown */
+  background: radial-gradient(circle at 20% 0%, #1c1917 0%, #0c0a09 40%, #000000 100%),
+              radial-gradient(ellipse at 80% 50%, rgba(6, 78, 59, 0.08) 0%, transparent 50%),
+              radial-gradient(ellipse at 30% 80%, rgba(120, 113, 108, 0.05) 0%, transparent 50%);
+  background-blend-mode: screen;
+}
+
+.text-gradient {
+  /* Subtle gray/silver text gradient for a perfectly matching font color */
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-stone-200 via-stone-400 to-stone-500;
+}
+
+.glass-card {
+  /* Minimalist glass effect using neutral stone tones */
+  @apply bg-stone-900/40 backdrop-blur-xl border border-stone-800/50 shadow-2xl;
+}
