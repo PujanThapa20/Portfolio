@@ -4,7 +4,7 @@ import { Mail, MapPin, Phone } from 'lucide-react';
 
 const Contact = () => {
   return (
-    <section id="contact" className="min-h-[80vh] py-24 relative flex items-center">
+    <section id="contact" className="min-h-[70vh] py-16 md:py-24 relative flex items-center">
       {/* Background abstract shape */}
       <div className="absolute bottom-0 left-0 w-full h-[500px] bg-gradient-to-t from-stone-900/30 to-transparent pointer-events-none" />
 
@@ -14,25 +14,25 @@ const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-light mb-4 text-stone-200">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light mb-4 text-stone-200">
             Get in <span className="font-medium text-stone-400">Touch</span>
           </h2>
           <div className="h-[1px] w-16 bg-stone-700 mx-auto" />
-          <p className="mt-6 text-stone-400 max-w-lg mx-auto text-base font-light">
+          <p className="mt-4 md:mt-6 text-stone-400 max-w-lg mx-auto text-sm sm:text-base font-light">
             Have a project in mind or want to collaborate? Let's build something beautiful together.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 mt-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 mt-4 md:mt-8 items-center">
           {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-col justify-center space-y-8 lg:pl-8"
+            className="flex flex-col justify-center space-y-6 lg:space-y-8 lg:pl-8"
           >
             {[
               { icon: <Mail className="w-5 h-5" />, title: "Email", value: "hello@pujanthapa.dev" },
@@ -59,7 +59,7 @@ const Contact = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex justify-center lg:justify-end"
           >
-            <form className="glass-card p-6 md:p-8 rounded-xl relative group border-stone-800/80 w-full max-w-sm">
+            <form className="glass-card p-6 md:p-8 rounded-xl relative group border-stone-800/80 w-full max-w-sm mx-auto lg:mx-0">
               <div className="space-y-4">
                 <div>
                   <label className="block text-stone-400 text-[10px] uppercase tracking-widest font-medium mb-1.5">Name</label>

@@ -51,7 +51,7 @@ const Experience = () => {
     <section ref={containerRef} className="relative h-[300vh] bg-stone-950">
       
       {/* Sticky container that stays in view while we scroll through the 300vh */}
-      <div className="sticky top-0 h-screen flex items-center overflow-hidden">
+      <div className="sticky top-0 h-[100dvh] flex items-center overflow-hidden py-16 md:py-0">
         <div className="absolute inset-0 bg-stone-950/40" />
         
         <div className="max-w-6xl mx-auto px-6 relative z-10 w-full">
@@ -60,20 +60,20 @@ const Experience = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
-            className="mb-16"
+            className="mb-8 md:mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-light mb-4 text-stone-200">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light mb-2 md:mb-4 text-stone-200">
               Professional <span className="font-medium text-stone-400">Path</span>
             </h2>
             <div className="h-[1px] w-12 bg-stone-700" />
             <p className="mt-4 text-stone-500 text-sm tracking-widest uppercase font-medium">Scroll to explore</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 items-start min-h-[400px]">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-start min-h-[350px] md:min-h-[400px]">
             
             {/* Left Side: Timeline List */}
-            <div className="md:col-span-5 lg:col-span-4 flex flex-col gap-2 relative">
-              <div className="absolute left-[3px] top-4 bottom-4 w-px bg-stone-800/50" />
+            <div className="md:col-span-5 lg:col-span-4 flex flex-row md:flex-col gap-2 md:gap-2 relative overflow-x-auto hide-scrollbar pb-2 md:pb-0">
+              <div className="hidden md:block absolute left-[3px] top-4 bottom-4 w-px bg-stone-800/50" />
               
               {experiences.map((exp, index) => {
                 const isActive = activeIndex === index;
@@ -81,25 +81,25 @@ const Experience = () => {
                   <div 
                     key={exp.id}
                     // We remove onClick/onHover because it's now driven purely by scroll
-                    className={`relative pl-6 py-4 transition-all duration-300 ${isActive ? 'opacity-100' : 'opacity-30'}`}
+                    className={`relative px-4 py-2 md:pl-6 md:pr-0 md:py-4 flex-shrink-0 transition-all duration-300 ${isActive ? 'opacity-100' : 'opacity-40'} border-b-2 md:border-b-0 md:border-l-0 ${isActive ? 'border-stone-400' : 'border-transparent'}`}
                   >
-                    {/* Animated Indicator */}
+                    {/* Animated Indicator - Desktop only */}
                     <motion.div 
                       layoutId="activeIndicator"
-                      className="absolute left-0 top-1/2 -translate-y-1/2 w-[7px] rounded-full bg-stone-400"
+                      className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 w-[7px] rounded-full bg-stone-400"
                       initial={false}
                       animate={{ height: isActive ? 32 : 0, opacity: isActive ? 1 : 0 }}
                       transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     />
                     
                     {!isActive && (
-                      <div className="absolute left-[2px] top-1/2 -translate-y-1/2 w-[3px] h-[3px] rounded-full bg-stone-700 transition-colors" />
+                      <div className="hidden md:block absolute left-[2px] top-1/2 -translate-y-1/2 w-[3px] h-[3px] rounded-full bg-stone-700 transition-colors" />
                     )}
 
-                    <h3 className={`text-lg transition-colors duration-300 ${isActive ? 'text-stone-200 font-medium' : 'text-stone-400 font-light'}`}>
+                    <h3 className={`text-sm md:text-lg transition-colors duration-300 ${isActive ? 'text-stone-200 font-medium' : 'text-stone-400 font-light'}`}>
                       {exp.company}
                     </h3>
-                    <p className="text-xs font-mono tracking-widest uppercase text-stone-500 mt-1">
+                    <p className="text-[10px] md:text-xs font-mono tracking-widest uppercase text-stone-500 mt-1">
                       {exp.period}
                     </p>
                   </div>
@@ -116,20 +116,20 @@ const Experience = () => {
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   exit={{ opacity: 0, y: -15, filter: "blur(8px)" }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="glass-card p-8 md:p-12 rounded-2xl border-stone-800/60 bg-stone-900/30 backdrop-blur-md relative overflow-hidden"
+                  className="glass-card p-5 sm:p-8 md:p-12 rounded-2xl border-stone-800/60 bg-stone-900/30 backdrop-blur-md relative overflow-hidden"
                 >
-                  <div className="absolute -top-24 -right-24 w-64 h-64 bg-stone-700/10 rounded-full blur-[80px] pointer-events-none" />
+                  <div className="hidden md:block absolute -top-24 -right-24 w-64 h-64 bg-stone-700/10 rounded-full blur-[80px] pointer-events-none" />
 
                   <div className="relative z-10">
                     <p className="text-stone-500 font-mono text-xs tracking-widest uppercase mb-4">
                       {experiences[activeIndex].company} • {experiences[activeIndex].period}
                     </p>
                     
-                    <h3 className="text-2xl md:text-3xl font-light text-stone-100 mb-6 leading-tight">
+                    <h3 className="text-lg sm:text-2xl md:text-3xl font-light text-stone-100 mb-3 md:mb-6 leading-tight">
                       {experiences[activeIndex].role}
                     </h3>
                     
-                    <p className="text-base text-stone-400 leading-relaxed font-light">
+                    <p className="text-sm sm:text-base text-stone-400 leading-relaxed font-light">
                       {experiences[activeIndex].description}
                     </p>
                   </div>
